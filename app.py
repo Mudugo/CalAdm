@@ -146,10 +146,20 @@ def gerar_pdf(dados, is_vr=False, parcelas=None, imagem_path=None):
 
     # Título
     pdf.set_font('Arial', 'B', 16)
-    titulo = f"{'VR' if is_vr else 'VT'} Inicial de {dados['nome']} - {dados['data_admissao']}"
+    titulo = f"{'VR' if is_vr else 'VT'} Inicial"
     pdf.cell(200, 10, txt=titulo, ln=True, align='C')
 
     pdf.ln(10)  # Quebra de linha
+
+    pdf.set_font('Arial', 'B', 16)
+    titulo1 = f"{dados['nome']}"
+    pdf.cell(200, 10, txt=titulo1, ln=True, align='C')
+
+    pdf.ln(10)  # Quebra de linha
+    
+    pdf.set_font('Arial', 'B', 16)
+    titulo2 = f"{{dados['data_admissao']}"
+    pdf.cell(200, 10, txt=titulo2, ln=True, align='C')
 
     # Adicionar informações do funcionário
     pdf.set_font('Arial', '', 12)
