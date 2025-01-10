@@ -158,7 +158,7 @@ def gerar_pdf(dados, is_vr=False, parcelas=None, imagem_path=None):
     pdf.ln(10)  # Quebra de linha
     
     pdf.set_font('Arial', 'B', 16)
-    titulo2 = f"{{dados['data_admissao']}"
+    titulo2 = f"{dados['data_admissao']}"
     pdf.cell(200, 30, txt=titulo2, ln=True, align='C')
 
     # Adicionar informações do funcionário
