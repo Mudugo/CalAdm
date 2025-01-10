@@ -151,11 +151,11 @@ def gerar_pdf(dados, is_vr=False, parcelas=None, imagem_path=None):
 
     pdf.set_font('Arial', 'B', 16)
     titulo1 = f"{dados['nome']}"
-    pdf.cell(200, 10, txt=titulo1, ln=True, align='C')
+    pdf.cell(200, 10, txt=titulo1, ln=True, align='R')
     
     pdf.set_font('Arial', 'B', 16)
     titulo2 = f"{dados['data_admissao']}"
-    pdf.cell(200, 10, txt=titulo2, ln=True, align='C')
+    pdf.cell(200, 10, txt=titulo2, ln=True, align='R')
 
     # Adicionar informações do funcionário
     pdf.set_font('Arial', '', 12)
