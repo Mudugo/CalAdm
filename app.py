@@ -240,7 +240,7 @@ def index():
                 "dias_beneficio": dias_beneficio,
             }
 
-            imagem_path = r"C:\Users\isaacholanda\Desktop\C\logo.png"  # Caminho absoluto da imagem
+            imagem_path = r"logo.png"  # Caminho absoluto da imagem
             pdf_buffer_vt = gerar_pdf(dados, parcelas=parcelas_vt, imagem_path=imagem_path)
             pdf_buffer_vr = gerar_pdf(dados, is_vr=True, parcelas=parcelas_vr, imagem_path=imagem_path)
 
