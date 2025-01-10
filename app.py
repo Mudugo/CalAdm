@@ -208,7 +208,8 @@ def index():
             banco = request.form.get("banco")
             tipo_pix = request.form.get("tipo_pix")
             chave_pix = request.form.get("chave_pix")
-            valor_vt = float(request.form.get("valor_vt"))
+            valor_vt1 = float(request.form.get("valor_vt"))
+            valor_vt = valor_vt1 * 2
             feriados = int(request.form.get("feriados"))  # Captura o valor dos feriados
 
             data_admissao = datetime.strptime(data_admissao_str, "%Y-%m-%d")
