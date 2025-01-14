@@ -105,34 +105,58 @@ def calcular_total_vr(dias_trabalho, feriados):
     return 19.77 * total_dias
 
 def parcela_vt(valor_vt, total_vt):
-    quociente = int(float(total_vt) // (float(valor_vt) * 6))
-    resto = total_vt % (float(valor_vt) * 6)
+    # Convertendo os valores para float onde necessário
+    valor_vt_float = float(valor_vt)
+    total_vt_float = float(total_vt)
+
+    # Número de parcelas inteiras de 6 dias
+    quociente = int(total_vt_float // (valor_vt_float * 6))
     
-    parcelas_vt = [(float(valor_vt) * 6)] * quociente
-    
+    # Resto após dividir por 6 dias
+    resto = total_vt_float % (valor_vt_float * 6)
+
+    # Criação das parcelas de 6 dias
+    parcelas_vt = [(valor_vt_float * 6)] * quociente
+
+    # Se o resto for maior que 0, adiciona o valor restante como uma parcela
     if resto > 0:
         parcelas_vt.append(resto)
-    
-    if len(parcelas_vt) > 1 and parcelas_vt[-1] < (float(valor_vt) * 6):
-        parcelas_vt[-2] += parcelas_vt[-1]
-        parcelas_vt.pop()
-    
+
+    # Ajuste para garantir que a última parcela seja somada à anterior se for menor que 6 dias
+    if len(parcelas_vt) > 1 and parcelas_vt[-1] < valor_vt_float * 6:
+        parcelas_vt[-2] += parcelas_vt[-1]  # Soma o resto à penúltima parcela
+        parcelas_vt.pop()  # Remove a última parcela (restante)
+
     return parcelas_vt
 
+
 def parcela_vr(total_vr):
-    quociente = int(float(total_vr) // (float(20.76) * 6))
-    resto = total_vr % (float(20.76) * 6)
+    # Definindo o valor da parcela de 6 dias
+    valor_parcela = 20.76
+
+    # Convertendo o valor total para float
+    total_vr_float = float(total_vr)
+
+    # Cálculo do número de parcelas inteiras de 6 dias
+    quociente = int(total_vr_float // (valor_parcela * 6))
     
-    parcelas_vr = [(float(20.76) * 6)] * quociente
-    
+    # Cálculo do resto após dividir por 6 dias
+    resto = total_vr_float % (valor_parcela * 6)
+
+    # Criação das parcelas de 6 dias
+    parcelas_vr = [(valor_parcela * 6)] * quociente
+
+    # Se o resto for maior que 0, adiciona o valor restante como uma parcela
     if resto > 0:
         parcelas_vr.append(resto)
-    
-    if len(parcelas_vr) > 1 and parcelas_vr[-1] < (float(20.76) * 6):
-        parcelas_vr[-2] += parcelas_vr[-1]
-        parcelas_vr.pop()
-        
+
+    # Ajuste para garantir que a última parcela seja somada à anterior se for menor que 6 dias
+    if len(parcelas_vr) > 1 and parcelas_vr[-1] < valor_parcela * 6:
+        parcelas_vr[-2] += parcelas_vr[-1]  # Soma o resto à penúltima parcela
+        parcelas_vr.pop()  # Remove a última parcela (restante)
+
     return parcelas_vr
+
 
 def gerar_pdf(dados, is_vr=False, parcelas=None, imagem_path=None):
     buffer = BytesIO()
