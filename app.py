@@ -122,8 +122,8 @@ def parcela_vt(valor_vt, total_vt):
     if resto > 0:
         parcelas_vt.append(resto)
 
-    # Ajuste para garantir que a última parcela seja somada à anterior se for menor que 6 dias
-    if len(parcelas_vt) > 1 and parcelas_vt[-1] < valor_vt_float * 6:
+    # Ajuste para garantir que a última parcela seja somada à anterior se for menor que 2 dias
+    if len(parcelas_vt) > 1 and parcelas_vt[-1] < valor_vt_float * 2:
         parcelas_vt[-2] += parcelas_vt[-1]  # Soma o resto à penúltima parcela
         parcelas_vt.pop()  # Remove a última parcela (restante)
 
@@ -150,8 +150,8 @@ def parcela_vr(total_vr):
     if resto > 0:
         parcelas_vr.append(resto)
 
-    # Ajuste para garantir que a última parcela seja somada à anterior se for menor que 6 dias
-    if len(parcelas_vr) > 1 and parcelas_vr[-1] < valor_parcela * 6:
+    # Ajuste para garantir que a última parcela seja somada à anterior se for menor que 2 dias
+    if len(parcelas_vr) > 1 and parcelas_vr[-1] < valor_parcela * 2:
         parcelas_vr[-2] += parcelas_vr[-1]  # Soma o resto à penúltima parcela
         parcelas_vr.pop()  # Remove a última parcela (restante)
 
