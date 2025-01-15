@@ -192,8 +192,8 @@ def gerar_pdf(dados, is_vr=False, parcelas=None, imagem_path=None):
         ("Função", dados["cargo"]),
         ("Horário", dados["turno"]),
         ("Banco", dados["banco"]),
-        ("Tipo de chave Pix", dados["tipo_pix"]),
-        ("Chave Pix", dados["chave_pix"]),
+        ("Pagamento Via", dados["tipo_pix"]),
+        ("Dados do Pagamento", dados["chave_pix"]),
     ]
 
     for campo, valor in campos:
