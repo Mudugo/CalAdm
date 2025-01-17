@@ -102,7 +102,7 @@ def calcular_total_vt(valor_vt, dias_trabalho, feriados):
 def calcular_total_vr(dias_trabalho, feriados):
     feriados = int(feriados)
     total_dias = len(dias_trabalho)  - feriados
-    return 19.77 * total_dias
+    return 20.76 * total_dias
 
 def parcela_vt(valor_vt, total_vt):
     # Convertendo os valores para float onde necessário
